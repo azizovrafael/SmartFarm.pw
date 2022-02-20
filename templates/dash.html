@@ -1,0 +1,455 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Agro Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Caveat:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
+
+    <!-- Bootstrap -->
+    <link href="{% static 'login/vendors/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="{% static 'login/vendors/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="{% static 'login/vendors/nprogress/nprogress.css' %}" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="{% static 'login/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css' %}" rel="stylesheet">
+    <!-- bootstrap-daterangepicker -->
+    <link href="{% static 'login/vendors/bootstrap-daterangepicker/daterangepicker.css' %}" rel="stylesheet">
+    
+    <!-- Custom Theme Style -->
+    <link href="{% static 'login/build/css/custom.min.css' %}" rel="stylesheet">
+    <!-- MJELNER -->
+      <link href="{% static 'login/build/css/thor.css' %}" rel="stylesheet">
+
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+          {% include 'header.html' %}
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+            {% include 'header2.html' %}
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="row top_tiles" style="margin: 10px 0;">
+              <div class="col-md-3 col-sm-3 col-xs-6 tile">
+                <span>Hava Tempraturu</span>
+                <h2>23</h2>
+                <span class="sparkline_one" style="height: 160px;">
+                      <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                  </span>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-6 tile">
+                <span>Torpaq nəmlik dərəcəsi</span>
+                <h2>50</h2>
+                <span class="sparkline_two" style="height: 160px;">
+                      <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                  </span>
+              </div>
+            </div>
+            <br />
+
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="dashboard_graph x_panel">
+                  <div class="row x_title">
+                    <div class="col-md-6">
+                      <h3>Ümumi Dashboard</h3>
+                    </div>
+<!--                    <div class="col-md-6">-->
+<!--                      <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">-->
+<!--                        <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>-->
+<!--                        <span>December 27, 2021 - January 02, 2022</span> <b class="caret"></b>-->
+<!--                      </div>-->
+<!--                    </div>-->
+                  </div>
+                  <div class="x_content">
+                    <div class="demo-container" style="height:250px">
+                      <div id="placeholder3xx3" class="demo-placeholder" style="width: 100%; height:250px;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row">
+
+              <!-- start of weather widget -->
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Hava proqnozu</h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="temperature"><b>Monday</b>, 07:30 AM
+                          <span>F</span>
+                          <span><b>C</b>
+                                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <div class="weather-icon">
+                          <span>
+                                              <canvas height="84" width="84" id="partly-cloudy-day"></canvas>
+                                          </span>
+
+                        </div>
+                      </div>
+                      <div class="col-sm-8">
+                        <div class="weather-text">
+                          <h2>Baku
+                                              <br><i>Partly Cloudy Day</i>
+                                          </h2>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="weather-text pull-right">
+                        <h3 class="degrees">6</h3>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+
+
+                    <div class="row weather-days">
+                      <div class="col-sm-2">
+                        <div class="daily-weather">
+                          <h2 class="day">Mon</h2>
+                          <h3 class="degrees">4</h3>
+                          <span>
+                                                  <canvas id="clear-day" width="32" height="32">
+                                                  </canvas>
+
+                                          </span>
+                          <h5>15
+                                              <i>km/h</i>
+                                          </h5>
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                        <div class="daily-weather">
+                          <h2 class="day">Tue</h2>
+                          <h3 class="degrees">6</h3>
+                          <canvas height="32" width="32" id="rain"></canvas>
+                          <h5>12
+                                              <i>km/h</i>
+                                          </h5>
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                        <div class="daily-weather">
+                          <h2 class="day">Wed</h2>
+                          <h3 class="degrees">3</h3>
+                          <canvas height="32" width="32" id="snow"></canvas>
+                          <h5>14
+                                              <i>km/h</i>
+                                          </h5>
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                        <div class="daily-weather">
+                          <h2 class="day">Thu</h2>
+                          <h3 class="degrees">7</h3>
+                          <canvas height="32" width="32" id="sleet"></canvas>
+                          <h5>15
+                                              <i>km/h</i>
+                                          </h5>
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                        <div class="daily-weather">
+                          <h2 class="day">Fri</h2>
+                          <h3 class="degrees">4</h3>
+                          <canvas height="32" width="32" id="wind"></canvas>
+                          <h5>11
+                                              <i>km/h</i>
+                                          </h5>
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                        <div class="daily-weather">
+                          <h2 class="day">Sat</h2>
+                          <h3 class="degrees">2</h3>
+                          <canvas height="32" width="32" id="cloudy"></canvas>
+                          <h5>10
+                                              <i>km/h</i>
+                                          </h5>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <!-- end of weather widget -->
+
+               <div class="col-md-8 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Torpaq nəmlik dərəcəsi</h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content hummer__content">
+                      <div class="hummer">
+                          <div id="hummer__part" class="first-part">
+                            <ul>
+                              <li></li>
+                              <li></li>
+                              <li></li>
+                              <li></li>
+                              <li></li>
+                              <li></li>
+                              <li></li>
+                              <li></li>
+                            </ul>
+                          </div>
+                          <div class="second-part"></div>
+                          <div class="third-part"></div>
+                          <div class="forth-part"></div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="{% static 'login/vendors/jquery/dist/jquery.min.js' %}"></script>
+    <!-- Bootstrap -->
+    <script src="{% static 'login/vendors/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    <!-- FastClick -->
+    <script src="{% static 'login/vendors/fastclick/lib/fastclick.js' %}"></script>
+    <!-- NProgress -->
+    <script src="{% static 'login/vendors/nprogress/nprogress.js' %}"></script>
+    <!-- Chart.js -->
+    <script src="{% static 'login/vendors/Chart.js/dist/Chart.min.js' %}"></script>
+    <!-- jQuery Sparklines -->
+    <script src="{% static 'login/vendors/jquery-sparkline/dist/jquery.sparkline.min.js' %}"></script>
+    <!-- Skycons -->
+    <script src="{% static 'login/vendors/skycons/skycons.js' %}"></script>
+    <!-- Flot -->
+    <script src="{% static 'login/vendors/Flot/jquery.flot.js' %}"></script>
+    <script src="{% static 'login/vendors/Flot/jquery.flot.pie.js' %}"></script>
+    <script src="{% static 'login/vendors/Flot/jquery.flot.time.js' %}"></script>
+    <script src="{% static 'login/vendors/Flot/jquery.flot.stack.js' %}"></script>
+    <script src="{% static 'login/vendors/Flot/jquery.flot.resize.js' %}"></script>
+    <!-- Flot plugins -->
+    <script src="{% static 'login/vendors/flot.orderbars/js/jquery.flot.orderBars.js' %}"></script>
+    <script src="{% static 'login/vendors/flot-spline/js/jquery.flot.spline.min.js' %}"></script>
+    <script src="{% static 'login/vendors/flot.curvedlines/curvedLines.js' %}"></script>
+    <!-- DateJS -->
+    <script src="{% static 'login/vendors/DateJS/build/date.js' %}"></script>
+
+    <!-- Custom Theme Scripts -->
+{#    <script src="{% static 'login/build/js/custom.min.js' %}"></script>#}
+
+    <!-- Flot -->
+    <script>
+        $(document).ready(function() {
+        //random data
+        var d1 = [
+          [0, 5],
+          [1, 9],
+          [2, 6],
+          [3, 10],
+          [4, 5],
+          [5, 17],
+          [6, 6],
+          [7, 10],
+          [8, 7],
+          [9, 11],
+          [10, 35],
+          [11, 9],
+          [12, 12],
+          [13, 5]
+          [14, 3],
+          [15, 4],
+          [16, 9]
+        ];
+        var d2 = [
+          [0, 15],
+          [1, 29],
+          [2, 0],
+          [3, 2],
+          [4, 5],
+          [5, 17],
+          [6, 6],
+          [7, 10],
+          [8, 7],
+          [9, 11],
+          [10, 35],
+          [11, 9],
+          [12, 12],
+          [13, 5],
+          [14, 3],
+          [15, 4],
+          [16, 9]
+        ];
+        //flot options
+        var options = {
+          series: {
+            curvedLines: {
+              apply: true,
+              active: true,
+              monotonicFit: true
+            }
+          },
+          colors: ["#26B99A"],
+          grid: {
+            borderWidth: {
+              top: 0,
+              right: 0,
+              bottom: 1,
+              left: 1
+            },
+            borderColor: {
+              bottom: "#7F8790",
+              left: "#7F8790"
+            }
+          }
+        };
+
+        var plot = $.plot($("#placeholder3xx3"), [{
+          label: "REGIST",
+          data: d1,
+          lines: {
+            fillColor: "rgba(250, 202, 89, 0.12)"
+          }, //#96CA59 rgba(150, 202, 89, 0.42)
+          points: {
+            fillColor: "#fff"
+          }
+        }], options);
+
+        var plot = $.plot($("#placeholder3xx3"), [{
+          label: "ssss",
+          data: d2,
+          lines: {
+            fillColor: "rgba(250, 202, 89, 0.12)"
+          }, //#96CA59 rgba(150, 202, 89, 0.42)
+          points: {
+            fillColor: "#fff"
+          }
+        }], options);
+
+      });
+    </script>
+    <!-- /Flot -->
+
+    <!-- jQuery Sparklines -->
+    <script>
+      $(document).ready(function() {
+        $(".sparkline_one").sparkline([2, 4, 3, 4, 5, 4, 5, 4, 3, 4, 5, 6, 7, 5, 4, 3, 5, 6], {
+          type: 'bar',
+          height: '40',
+          barWidth: 9,
+          colorMap: {
+            '7': '#a1a1a1'
+          },
+          barSpacing: 2,
+          barColor: '#26B99A'
+        });
+
+        $(".sparkline_two").sparkline([2, 4, 3, 4, 5, 4, 5, 4, 3, 4, 5, 6, 7, 5, 4, 3, 5, 6], {
+          type: 'line',
+          width: '200',
+          height: '40',
+          lineColor: '#26B99A',
+          fillColor: 'rgba(223, 223, 223, 0.57)',
+          lineWidth: 2,
+          spotColor: '#26B99A',
+          minSpotColor: '#26B99A'
+        });
+      });
+    </script>
+    <!-- /jQuery Sparklines -->
+
+    <!-- Skycons -->
+    <script>
+      var icons = new Skycons({
+          "color": "#73879C"
+        }),
+        list = [
+          "clear-day", "clear-night", "partly-cloudy-day",
+          "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
+          "fog"
+        ],
+        i;
+
+      for (i = list.length; i--;)
+        icons.set(list[i], list[i]);
+
+      icons.play();
+    </script>
+    <!-- /Skycons -->
+    <script>
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'http://127.0.0.1:8000/api/api/?format=json', true);
+      xhr.onreadystatechange = function() {
+        if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+
+          // Parse JSON response
+          var data = JSON.parse(xhr.responseText);
+
+          // Use the object however you wish
+          console.log("Data >>>",data);
+        }
+
+        var count = Object.keys(data).length;
+        console.log("Len: ",count);
+
+        console.log("Data >>>",data[count-1]);
+        
+        let hava1 = (data[count-1].l_humidity_1)/100;
+        let hava2 = (data[count-1].l_humidity_2)/100;
+        
+        console.log(hava1)
+        console.log(hava2)
+        
+        let hava3 = 1;
+        
+        console.log(hava3)
+        
+        let cumle = 'linear-gradient(to top, rgba(0, 0, 255, ' + hava1 + ') 50%, rgba(0, 0, 255,'  + hava2 + ') 100%)';
+        console.log("Cumle: ", cumle)
+        document.getElementById("hummer__part").style.background = cumle;
+      }
+      
+      xhr.send();
+
+    </script>
+  </body>
+</html>

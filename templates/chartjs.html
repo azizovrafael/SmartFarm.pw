@@ -1,0 +1,253 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Agro Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Caveat:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
+
+    <!-- Bootstrap -->
+    <link href="{% static 'login/vendors/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="{% static 'login/vendors/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="{% static 'login/vendors/nprogress/nprogress.css' %}" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="{% static 'login/build/css/custom.min.css' %}" rel="stylesheet">
+
+
+
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+           {% include 'header.html' %}
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          {% include 'header2.html' %}
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main" style="min-height: 100vh">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Agro Dashboard</h3>
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Hava Tempraturu</h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <canvas id="lineChart"></canvas>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Torpaq nəmlik dərəcəsi</h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <canvas id="canvasRadar"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- /page content -->
+
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="{% static 'login/vendors/jquery/dist/jquery.min.js' %}"></script>
+    <!-- Bootstrap -->
+    <script src="{% static 'login/vendors/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    <!-- FastClick -->
+    <script src="{% static 'login/vendors/fastclick/lib/fastclick.js' %}"></script>
+    <!-- NProgress -->
+    <script src="{% static 'login/vendors/nprogress/nprogress.js' %}"></script>
+    <!-- Chart.js -->
+    <script src="{% static 'login/vendors/Chart.js/dist/Chart.min.js' %}"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="{% static 'login/build/js/custom.min.js' %}"></script>
+
+    <!-- Chart.js -->
+    <script>
+      Chart.defaults.global.legend = {
+        enabled: false
+      };
+
+      // Line chart
+      var xhr = new XMLHttpRequest();
+xhr.open('GET', 'http://127.0.0.1:8000/api/api/?format=json', true);
+xhr.onreadystatechange = function() {
+  if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+
+    // Parse JSON response
+    var data = JSON.parse(xhr.responseText);
+
+    // Use the object however you wish
+    console.log("Data >>>",data);
+  }
+
+  // let hava_tempatur = ["20", "40"]
+  // let hava_rutubet = ["35", "52", "61"]
+  // let torpaq_nemlik_derecesi = ["58", "91", "12"]
+  // let id = ["1", "2", "3"]
+  
+  console.log(data[0]);
+
+  let hava_tempratur_list = [];
+  let hava_rutubet_list = [];
+  let torpaq_nemlik_list = [];
+  let suyun_seviyyesi_list = [];
+  let battery_status_list = [];
+  let id_list = [];
+  
+  var count = Object.keys(data).length;
+    console.log("Len: ",count);
+  
+  for (let i = count-20;i<count;i++){
+    //   console.log("Data 1 >>>",data[i]);
+    //   console.log(typeof data[i]);
+    //   console.log("object: ",data[i].hava_tempatur)
+      
+      console.log("eben: ",((data[i].l_humidity_1)))
+      console.log("eben: ",((data[i].l_humidity_2)))
+     const num1 = Number((data[i].l_humidity_2) );
+      const num2 = Number((data[i].l_humidity_1) );
+      const sum = (num1 + num2)/2;
+
+      hava_tempratur_list.push(data[i].w_temp);
+      torpaq_nemlik_list.push(sum);
+      suyun_seviyyesi_list.push(data[i].suyun_seviyyesi);
+      battery_status_list.push(data[i].battery_status);
+      id_list.push(data[i].id);
+  }
+
+console.log("List: ", hava_tempratur_list)
+console.log("List: ", hava_rutubet_list)
+console.log("List: ", torpaq_nemlik_list)
+console.log("List: ", suyun_seviyyesi_list)
+console.log("List: ", battery_status_list)
+
+var xValues = id_list;
+var yValues_temp = hava_tempratur_list;
+var yValues_rutubet = hava_rutubet_list;
+var yValues_nemlik = torpaq_nemlik_list;
+var yValues_seviyyesi = suyun_seviyyesi_list;
+
+var ctx = document.getElementById("lineChart");
+      var lineChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: xValues,
+          datasets: [{
+            label: "Tempratur",
+            backgroundColor: "rgba(38, 185, 154, 0.31)",
+            borderColor: "rgba(38, 185, 154, 0.7)",
+            pointBorderColor: "rgba(38, 185, 154, 0.7)",
+            pointBackgroundColor: "rgba(38, 185, 154, 0.7)",
+            pointHoverBackgroundColor: "#fff",
+            pointHoverBorderColor: "rgba(220,220,220,1)",
+            pointBorderWidth: 1,
+            data: yValues_temp
+          }]
+        },
+      });
+
+
+//   new Chart(document.getElementById("mybarChart"), {
+//   type: 'line',
+//   data: {
+//     labels: xValues,
+//     datasets: [{
+//         data: yValues_rutubet,
+//         label: "Rütubət",
+//         borderColor: "#3e95cd",
+//         fill: false
+//       }]
+//   },
+//   options: {
+//     title: {
+//       display: true,
+//       text: 'Havanın rütubəti'
+//     }
+//   }
+// });
+
+var ctx = document.getElementById("canvasRadar");
+      var lineChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: xValues,
+          datasets: [{
+            label: "Nəmlik",
+            backgroundColor: "rgba(38, 185, 154, 0.31)",
+            borderColor: "rgba(38, 185, 154, 0.7)",
+            pointBorderColor: "rgba(38, 185, 154, 0.7)",
+            pointBackgroundColor: "rgba(38, 185, 154, 0.7)",
+            pointHoverBackgroundColor: "#fff",
+            pointHoverBorderColor: "rgba(220,220,220,1)",
+            pointBorderWidth: 1,
+            data: yValues_nemlik
+          }]
+        },
+      });
+
+var ctx = document.getElementById("canvasDoughnut");
+      var lineChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: xValues,
+          datasets: [{
+            label: "Suyun səviyyəsi",
+            backgroundColor: "rgba(38, 185, 154, 0.31)",
+            borderColor: "rgba(38, 185, 154, 0.7)",
+            pointBorderColor: "rgba(38, 185, 154, 0.7)",
+            pointBackgroundColor: "rgba(38, 185, 154, 0.7)",
+            pointHoverBackgroundColor: "#fff",
+            pointHoverBorderColor: "rgba(220,220,220,1)",
+            pointBorderWidth: 1,
+            data: yValues_seviyyesi
+          }]
+        },
+      });
+
+
+}
+
+xhr.send();
+      
+    </script>
+    <!-- /Chart.js -->
+  </body>
+</html>

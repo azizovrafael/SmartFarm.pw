@@ -1,0 +1,397 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="az">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmartFarm</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Caveat:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+
+    <!-- template styles -->
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+</head>
+
+<body>
+    <div class="page-wrapper">
+
+        <header class="main-header main-header--one  clearfix">
+                <div class="main-header--one__bottom clearfix">
+                    <div class="container">
+                        <div class="main-header--one__bottom-inner">
+                            <div>
+                                <div class="logo">
+                                    <a href="#" style="text-decoration: none;">
+                                        <p class="logo__logo">SMARTFARM</p>
+                                    </a>
+                                </div>
+                            </div>
+                            <nav class="main-menu main-menu--1">
+                                <div class="main-menu__inner">
+                                    <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
+                                    <div class="main-header--one__bottom-left">
+                                        <ul class="main-menu__list">
+                                            <li class="dropdown megamenu">
+                                                <a href="#">Ana Səhifə</a>
+                                            </li>
+                                            <li><a href="#about">Haqqımızda</a></li>
+                                            <li><a href="#contact">Əlaqə</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
+
+
+                                    <div class="main-slider__button-box boxclass">
+                                        <a href="{% url 'login' %}" class="thm-btn">Login</a>
+                                    </div>
+                        </div>
+
+                    </div>
+                </div>
+        </header>
+    </div>
+
+
+
+        <!--Main Slider Start-->
+        <section class="main-slider main-slider-one">
+            <div class="swiper-container thm-swiper__slider">
+
+                <div class="swiper-wrapper">
+                    <!--Start Single Swiper Slide-->
+                        <div class="image-layer"
+                            style="background-image: url({% static 'assets/images/backgrounds/main-slider-v1-1.jpg' %});"></div>
+                        <div class="image-layer-overlay"></div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="main-slider-inner">
+                                        <div class="main-slider__content">
+                                            <span class="main-slider-tagline">Aqrar sahədə ehtiyyatların səmərəli istidafəsi</span>
+                                            <h2 class="main-slider__title">Smartfarm-a <br> Xoş <span><span class="leaf"></span>gəlmisiniz</span></h2>
+<!--                                            <p class="main-slider__text">There are many of passages of lorem Ipsum, but-->
+<!--                                                the majori have<br> suffered alteration in some form.</p>-->
+                                        </div>
+<!--                                        <div class="main-slider__button-box">-->
+<!--                                            <a href="#" class="thm-btn">Bu Saniyə Başla</a>-->
+<!--                                        </div>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    <!--End Single Swiper Slide-->
+                </div>
+            </div>
+            <p id="about" style="font-size: 0.1px">1</p>
+        </section>
+
+        <!--Main Slider End-->
+
+
+        <!--About One Start-->
+        <section class="about-one">
+            <div class="container">
+                <div class="row">
+                    <!--Start About One Left-->
+                    <div class="col-xl-6 about-one__left-img">
+                        <img class="left__img" src="{% static 'a.PNG' %}">
+                    </div>
+                    <!--End About One Left-->
+
+                    <!--Start About One Content-->
+                    <div class="col-xl-6">
+                        <div class="about-one__content">
+                            <div class="sec-title">
+                                <span class="sec-title__tagline">Layihəyə giriş</span>
+                                <h2 class="sec-title__title">Daha az resurs və <br>çox məhsul</h2>
+                            </div>
+
+                            <h2 class="about-one__content-title">Lahiyəmiz</h2>
+                            <p class="about-one__content-text">Lahiyəmizin əsas məqsədi kənd təsərrüfatında suvarma zamanı artıq şəkildə su ehtiyyatlarının istifadə olunmasının qarşısını almaqdır. Artıq suvarma torpağın keyfiyyətini buna istinad olaraqda məhsul verimliliyi azalır.</p>
+                            <ul class="about-one__content-list">
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="text">
+                                        <p>Daha az sudan istifadə etmək</p>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="text">
+                                        <p>Ucuz qurğu</p>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="text">
+                                        <p>Analizlərin toplanması</p>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="text">
+                                        <p>Sistemə online giriş imkanı və tam müdaxilə imkanı</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--End About One Content-->
+                </div>
+            </div>
+        </section>
+        <!--About One End-->
+
+        <!--Services One Start-->
+        <section class="services-one">
+            <div class="services-one__bg"></div>
+            <div class="container">
+                <div class="sec-title text-center">
+                    <span class="sec-title__tagline">What we’re doing</span>
+                    <h2 class="sec-title__title">Təkliflərimiz</h2>
+                </div>
+                <div class="row">
+                    <!--Start Single Services One-->
+                    <div class="col-xl-3 col-lg-6">
+                        <div class="services-one__single">
+                            <div class="services-one__single-img">
+                                <div class="services-one__single-img-inner">
+                                    <img src="{% static 'assets/images/1.jpg' %}" alt="" />
+                                </div>
+                            </div>
+                            <div class="services-one__single-content text-center">
+                                <div class="services-one__single-img-icon">
+                                    <span class="icon-agriculture"></span>
+                                </div>
+                                <h3><a href="#">Agriculture<br> Products</a></h3>
+                                <p>Daha az sudan istifadə etmək</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End Single Services One-->
+
+                    <!--Start Single Services One-->
+                    <div class="col-xl-3 col-lg-6">
+                        <div class="services-one__single">
+                            <div class="services-one__single-img">
+                                <div class="services-one__single-img-inner">
+                                    <img src="{% static 'assets/images/2.jpg' %}" alt="" />
+                                </div>
+                            </div>
+                            <div class="services-one__single-content text-center">
+                                <div class="services-one__single-img-icon">
+                                    <span class="icon-harvest"></span>
+                                </div>
+                                <h3><a href="#">Fresh <br>Vegetables</a></h3>
+                                <p>Ucuz qurğu</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End Single Services One-->
+
+                    <!--Start Single Services One-->
+                    <div class="col-xl-3 col-lg-6">
+                        <div class="services-one__single">
+                            <div class="services-one__single-img">
+                                <div class="services-one__single-img-inner">
+                                    <img src="{% static 'assets/images/3.jpg' %}" alt="" />
+                                </div>
+
+                            </div>
+                            <div class="services-one__single-content text-center">
+                                <div class="services-one__single-img-icon">
+                                    <span class="icon-growth"></span>
+                                </div>
+                                <h3><a href="#">Oragnic <br>Products</a></h3>
+                                <p>Analizlərin toplanması</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End Single Services One-->
+
+                    <!--Start Single Services One-->
+                    <div class="col-xl-3 col-lg-6">
+                        <div class="services-one__single">
+                            <div class="services-one__single-img">
+                                <div class="services-one__single-img-inner">
+                                    <img src="{% static 'assets/images/4.jpg' %}" alt="" />
+                                </div>
+                            </div>
+                            <div class="services-one__single-content text-center">
+                                <div class="services-one__single-img-icon">
+                                    <span class="icon-dairy-products"></span>
+                                </div>
+                                <h3><a href="#">Dairy<br> Products</a></h3>
+                                <p>Sistemə online giriş imkanı və tam müdaxilə imkanı</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End Single Services One-->
+                </div>
+            </div>
+        </section>
+        <!--Services One End-->
+
+        <!--Providing Quality One Start-->
+        <!--Providing Quality One End-->
+
+        <section class="contact-one">
+            <div class="container">
+                <div class="sec-title text-center">
+                    <p id="contact" style="font-size: 0.1px;">1</p>
+                    <span class="sec-title__tagline">bizimlə əlaqə qurun</span>
+                    <h2 class="sec-title__title">SMARTFARM haqqında<br> sualınız var?</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="contact-one__content">
+                            <p class="contact-one__text">Sizə maraqlı olan hər hansı sualınız varsa bizə yönləndirin. Qısa zaman ərzində sizə geri dönüş edəcəyik.</p>
+                            <ul class="list-unstyled ml-0 contact-one__lists">
+                                <li>
+                                    <i class="fa fa-check-circle"></i>
+                                    Veb-sayt ilə bağlı suallar
+                                </li>
+                                <li>
+                                    <i class="fa fa-check-circle"></i>
+                                    Sifariş etmək
+                                </li>
+                                <li>
+                                    <i class="fa fa-check-circle"></i>
+                                    Sisteminizdə olan problemlərin həlli
+                                </li>
+                            </ul><!-- /.list-unstyled ml-0 -->
+                        </div><!-- /.contact-one__content -->
+                    </div>
+                    <div class="col-lg-6">
+                        <form action=""
+                            class="contact-one__form comment-one__form contact-form-validated" novalidate="novalidate">
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="comment-form__input-box">
+                                        <input type="text" placeholder="Ad və Soyad" name="name">
+                                    </div>
+                                </div>
+                                <div class="col-xl-12">
+                                    <div class="comment-form__input-box">
+                                        <input type="email" placeholder="E-mail ünvan" name="Poçt Adresi">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12">
+                                    <div class="comment-form__input-box">
+                                        <textarea name="message" placeholder="Mətn"></textarea>
+                                    </div>
+                                    <button type="submit" class="thm-btn comment-form__btn">Göndər</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="result"></div><!-- /.result -->
+                    </div><!-- /.col-lg-6 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </section><!-- /.contact-one -->
+
+        <!--Start Footer One-->
+        <footer class="footer-one">
+            <div class="footer-one__top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="footer-one__top-wrapper">
+                                <div class="row">
+                                    <!--Start Footer Widget Column-->
+                                    <div class="col-xl-3 col-lg-6 col-md-6">
+                                        <div class="footer-widget__column footer-widget__about">
+                                            <div class="footer-widget__about-logo">
+                                                <a href="#">SMARTFARM</a>
+                                            </div>
+                                            <p class="footer-widget__about-text">Neftsiz milyonlarca il yaşadıq, amma susuz <span style="color: red;">1 gün</span> belə yaşaya bilmərik. </p>
+                                            <div class="footer-widget__about-contact-box">
+                                                <p class="phone"><a href="tel:123456789"><i
+                                                            class="fas fa-phone-square-alt"></i>+994 55 555 55 55</a></p>
+                                                <p><a href="mailto:needhelp@company.com"><i
+                                                            class="fa fa-envelope"></i>admin@smartfarm.com</a></p>
+                                                <p class="text"><i class="fas fa-map-marker-alt"></i>Bakı Şəhəri</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--End Footer Widget Column-->
+                                    <div style="flex: 0 0 37%"></div>
+                                    <!--Start Footer Widget Column-->
+                                    <div class="col-xl-4 col-lg-6 col-md-6">
+                                        <div class="footer-widget__column footer-widget__newletter">
+                                            <h2 class="footer-widget__title">Qısa əlaqə</h2>
+                                            <p class="footer-widget__newletter-text">E-mail adresinizi daxil edin. <br> Biz sizə geri dönüş edəcəyik</p>
+                                            <form class="subscribe-form" action="#">
+                                                <input type="email" name="email" placeholder="E-mail ünvan">
+                                                <button class="subscribe__submit" type="submit"><img src="{% static 'assets/images/send.png' %}" alt=""></button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!--End Footer Widget Column-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+    <div class="mobile-nav__wrapper">
+        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+        <div class="mobile-nav__content">
+            <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
+
+            <div class="logo-box">
+                <a href="#">
+                    <p class="logo-box-logo">SMARTFARM</p>
+                </a>
+            </div>
+            <div class="mobile-nav__container"></div>
+
+            <div class="main-slider__button-box mainbox">
+                <a href="{% url 'login' %}" class="thm-btn">Login</a>
+            </div>
+
+            <ul class="mobile-nav__contact list-unstyled">
+                <li>
+                    <i class="icon-phone-call"></i>
+                    <a href="mailto:info@smartfarm.az">info@smartfarm.az</a>
+                </li>
+                <li>
+                    <i class="icon-letter"></i>
+                    <a href="tel:+994555555555">+994 55 555 55 55</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{% static 'index.js' %}"></script>
+    
+</body>
+
+</html>
